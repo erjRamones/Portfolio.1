@@ -5,6 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eric, Jr. M. Ramones</title>
     <link rel="stylesheet" href="output.css">
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        #about {
+            background-image: url('./img/bg/waves.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative; /* Added to allow absolute positioning of child elements */
+            min-height: 645px; /* Ensure the section has enough height for the background and image */
+        }
+        #about .flex.items-center.justify-center img {
+            position: absolute;
+            bottom: 50; /* Aligns the bottom of the image with the bottom of the section */
+            right: 100px; /* Adjusts the horizontal position */
+            width: 500px; /* Adjust size as needed */
+            height: auto;
+            border: 4px ; /* Maintains the border style */
+            border-radius: 50%; /* Maintains the circular shape */
+            object-fit: cover; /* Ensures the image fits within the circle */
+            z-index: 10; /* Ensures the image is above the background */
+        }
+        h2.graphic-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #ffffff;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        h2.graphic-title:hover {
+            color: #f4a261; /* Orange-400 shade */
+            text-shadow: 0 0 10px rgba(244, 162, 97, 0.7);
+        }
+
+        .creation-item {
+            transition: all 0.3s ease;
+        }
+
+        .creation-item:hover {
+            transform: scale(1.05) translateY(-10px); /* Scale up and lift slightly */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Increase shadow for depth */
+            background-color: #1f2937; /* Slightly darker gray for contrast */
+        }
+
+        .creation-item img {
+            transition: opacity 0.3s ease;
+        }
+
+        .creation-item:hover img {
+            opacity: 0.9; /* Slight fade effect on image */
+        }
+        .skill-item {
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1) translateY(-2px); /* Slightly larger and lifted */
+            color: #f4a261; /* Orange-400 */
+            text-shadow: 0 0 8px rgba(244, 162, 97, 0.5); /* Glow effect */
+            background-color: rgba(255, 165, 0, 0.1); /* Subtle orange background */
+        }
+        
+        .skill-item#photoshop-skill:hover::after {
+            content: '';
+            position: absolute;
+            top: 45px; /* Adjust based on text height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px; /* Match text width approximately */
+            height: 40px; /* Match text height approximately */
+            background-image: url('./img/logo/ps.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+            pointer-events: none; /* Prevent hover on the image itself */
+        }
+
+        .skill-item#after-effect:hover::after {
+            content: '';
+            position: absolute;
+            top: 45px; /* Adjust based on text height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px; /* Match text width approximately */
+            height: 40px; /* Match text height approximately */
+            background-image: url('./img/logo/ae.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+            pointer-events: none; /* Prevent hover on the image itself */
+        }
+
+        .skill-item#capcut:hover::after {
+            content: '';
+            position: absolute;
+            top: 45px; /* Adjust based on text height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px; /* Match text width approximately */
+            height: 40px; /* Match text height approximately */
+            background-image: url('./img/logo/cc.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+            pointer-events: none; /* Prevent hover on the image itself */
+        }
+
+        .skill-item#canva:hover::after {
+            content: '';
+            position: absolute;
+            top: 45px; /* Adjust based on text height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px; /* Match text width approximately */
+            height: 40px; /* Match text height approximately */
+            background-image: url('./img/logo/canva.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+            pointer-events: none; /* Prevent hover on the image itself */
+        }
+
+        .skill-item#figma:hover::after {
+            content: '';
+            position: absolute;
+            top: 45px; /* Adjust based on text height */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px; /* Match text width approximately */
+            height: 40px; /* Match text height approximately */
+            background-image: url('./img/logo/images.jpg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            z-index: 10;
+            pointer-events: none; /* Prevent hover on the image itself */
+        }
+
+    </style>
 </head>
 <body>
     <div class="bg-gray-900 text-white min-h-screen">
@@ -17,11 +160,13 @@
                 <ul class="flex space-x-10 text-lg text-white">
                     <li class="hover:text-orange-400 cursor-pointer"><a href="#about">About</a></li>
                     <li class="hover:text-orange-400 cursor-pointer"><a href="#projects">Projects</a></li>
+                    <li class="hover:text-orange-400 cursor-pointer"><a href="#creations">Designs</a></li>
                     <li class="hover:text-orange-400 cursor-pointer"><a href="#contacts">Contacts</a></li>
                 </ul>
             </nav>
         </header>
         
+        <!-- Hero Section -->
         <!-- Hero Section -->
         <section id="about" class="flex flex-col md:flex-row items-center justify-between px-20 py-20 mt-8">
             <div class="text-left">
@@ -33,17 +178,17 @@
                     </span>
                 </h1>
                 
-                <div class="mt-6">
+                <div class="mt-10">
                     <a href="CV_ERIC.pdf" download="Hire me please">
                         <button class="px-6 py-3 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900">
                             Download Resume
                         </button>
                     </a>
-                    </div>
                 </div>
-                    <div class="w-2.5 h-28 border-4 border-white rounded-full overflow-hidden flex items-center justify-center">
-                        <img src="./img/togaerix1.png" class="object-cover w-full h-full" alt="Profile">
-                    </div>
+            </div>
+            <div class="duration-300 w-2.5 h-28 border-4 border-white rounded-full overflow-hidden flex items-center justify-center">
+                <img src="./img/togaerix.jpg" class="object-cover w-full h-full" alt="Profile">
+            </div>
         </section>
         
         <!-- Skills Section -->
@@ -51,14 +196,14 @@
             <div class="max-w-4xl mx-auto text-gray-400 text-lg">
                 <!-- First Row - Dev Skills -->
                 <div class="flex justify-center space-x-10 mb-4">
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">HTML5</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">CSS</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">JavaScript</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Laravel</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">PHP</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">MySQL</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Vue</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Tailwind</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">HTML5</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">CSS</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">JavaScript</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Laravel</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">PHP</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">MySQL</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Vue</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Tailwind</span>
                 </div>
 
                 <!-- Divider Line -->
@@ -66,11 +211,11 @@
 
                 <!-- Second Row - Graphic/Video Skills -->
                 <div class="flex justify-center space-x-10 mt-4">
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Adobe Photoshop</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">After Effects</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Capcut</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Canva</span>
-                    <span class="cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400">Figma</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400" id="photoshop-skill" >Photoshop</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400" id="after-effect" >After Effects</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400" id="capcut">Capcut</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400" id="canva">Canva</span>
+                    <span class="skill-item cursor-pointer transition-transform transform hover:scale-110 hover:-translate-y-1 hover:text-orange-400" id="figma">Figma</span>
                 </div>
             </div>
         </section>
@@ -79,20 +224,20 @@
         <!-- Skill-Set Section -->
         <section class="bg-gray-900 text-white py-16 px-6">
             <div class="max-w-6xl mx-auto">
-                <h2 class="text-4xl font-bold ">Skill-Set</h2>
+                <h2 class="graphic-title text-4xl font-semibold mb-4 transition duration-300 hover:text-orange-400">
+                    Skill-Set
+                </h2>
                 <div class="w-20 h-1 bg-white mt-2"></div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                     
                     <div class="bg-gray-800 p-6 rounded-lg shadow-md">
                         <h3 class="text-xl font-semibold mt-4">Graphic Design</h3>
-                        <p class="text-gray-400 mt-2">I design eye-catching visuals with Photoshop and Canva, and edit videos using various tools with a touch of After Effects. 
-                            I love making content look clean, creative, and engaging.</p>
+                        <p class="text-gray-400 mt-2">I design eye-catching visuals with Photoshop and Canva, and edit videos using various tools with a touch of After Effects. </p>
                     </div>
 
                     <div class="bg-gray-800 p-6 rounded-lg shadow-md">
                         <h3 class="text-xl font-semibold mt-4">Video Editing</h3>
-                        <p class="text-gray-400 mt-2">I edit videos using a range of tools, mainly CapCut for quick and clean cuts, and After Effects for creative animations and effects.
-                            I enjoy turning raw clips into engaging stories that are polished and ready to share.</p>
+                        <p class="text-gray-400 mt-2">I edit videos using a range of tools, mainly CapCut for quick and clean cuts, and After Effects for creative animations and effects.</p>
                     </div>
 
 
@@ -116,33 +261,32 @@
             
         </section>
 
-        <!-- Graphic Design Creations Section -->
-    <section id="creations" class="py-20 text-center bg-gray-900">
-        <h2 class="text-4xl font-semibold mb-4 transition duration-300 hover:text-orange-400">
+    <!-- Graphic Design Creations Section -->
+    <section id="creations" class="py-6 text-center bg-gray-900">
+        <h2 class="graphic-title text-4xl font-semibold mb-4 transition duration-300 hover:text-orange-400">
             Graphic Design Creations
         </h2>
 
         <div class="w-24 h-1 bg-white mx-auto mb-8 transition duration-300 hover:bg-orange-400"></div>
 
         <div class="flex flex-col items-center">
-
             <!-- Creation 1 -->
-            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transform transition duration-300 w-full max-w-4xl mb-8">
+            <div class="creation-item bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 w-full max-w-4xl mb-8">
                 <img src="./img/graphics/delight.jpg" alt="Design 1" class="w-full h-auto object-contain">
             </div>
 
             <!-- Creation 2 -->
-            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transform transition duration-300 w-full max-w-4xl mb-8">
+            <div class="creation-item bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 w-full max-w-4xl mb-8">
                 <img src="./img/graphics/kadayawan.jpg" alt="Design 2" class="w-full h-auto object-contain">
             </div>
 
             <!-- Creation 3 -->
-            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transform transition duration-300 w-full max-w-4xl mb-8">
+            <div class="creation-item bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 w-full max-w-4xl mb-8">
                 <img src="./img/graphics/stacey.jpg" alt="Design 3" class="w-full h-auto object-contain">
             </div>
 
             <!-- Creation 4 -->
-            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:scale-105 transform transition duration-300 w-full max-w-4xl">
+            <div class="creation-item bg-gray-800 rounded-lg overflow-hidden shadow-lg transform transition duration-300 w-full max-w-4xl">
                 <img src="./img/graphics/XRM.jpg" alt="Design 4" class="w-full h-auto object-contain">
             </div>
         </div>
@@ -154,7 +298,10 @@
 
         <!-- Projects Section -->
         <section id="projects" class="py-20 text-center bg-gray-800">
-            <h2 class="text-4xl font-semibold mb-4 transition duration-300 hover:text-blue-400">Projects</h2>
+            <h2 class="graphic-title text-4xl font-semibold mb-4 transition duration-300 hover:text-orange-400">
+                Projects
+            </h2>
+            
             <div class="w-24 h-1 bg-white mx-auto mb-8 transition duration-300 hover:bg-blue-400 "></div>
 
             <div class="flex flex-col items-center space-y-10">
@@ -242,6 +389,30 @@
                 </div>
             </div>
         </section>
+        
+    <!-- <section>
+        <footer class="bg-gray-800 text-white py-8 text-center">
+            <p class="mb-4 text-lg">You can reach me here</p>
+            <div class="flex justify-center space-x-8">
+                <a href="https://www.facebook.com/EricJrPH"  aria-label="Facebook" class="hover:text-blue-500 transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14 6h3v3h-2a1 1 0 0 0-1 1V12h3l-.5 3h-2.5v7A10 10 0 0 0 22 12z" />
+                </svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter" class="hover:text-blue-400 transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.54A4.48 4.48 0 0 0 22.4.36a9 9 0 0 1-2.84 1.1A4.52 4.52 0 0 0 16 0c-2.48 0-4.5 2.02-4.5 4.5 0 .35.04.7.11 1.03A12.82 12.82 0 0 1 1.64.88a4.48 4.48 0 0 0-.61 2.27 4.5 4.5 0 0 0 2 3.75 4.46 4.46 0 0 1-2.04-.56v.06c0 2.2 1.56 4.03 3.64 4.45a4.6 4.6 0 0 1-2.02.08 4.51 4.51 0 0 0 4.2 3.12A9.06 9.06 0 0 1 0 19.54 12.8 12.8 0 0 0 6.92 21c8.3 0 12.84-6.88 12.84-12.84 0-.2 0-.39-.01-.58A9.18 9.18 0 0 0 23 3z" />
+                </svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="hover:text-blue-300 transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5.001 2.5 2.5 0 0 1 0-5zm.02 4.5H5V21H1.5V8h3.5zM8.5 8H12v1.56h.05c.5-.94 1.74-1.94 3.58-1.94 3.82 0 4.52 2.5 4.52 5.76V21H16v-6.25c0-1.49-.03-3.4-2.07-3.4-2.07 0-2.38 1.62-2.38 3.3V21H8.5V8z" />
+                </svg>
+                </a>
+            </div>
+        </footer>
+    </section> -->
+
 
     </div>
 
@@ -249,15 +420,39 @@
         const words = ["Web Developer.", "Programmer.", "Graphic Designer.", "Video Editor."];
         let index = 0;
         const textElement = document.getElementById("rotatingText");
-    
-        setInterval(() => {
-            textElement.style.opacity = 0; // Fade out
-            setTimeout(() => {
-                index = (index + 1) % words.length;
-                textElement.textContent = words[index];
-                textElement.style.opacity = 1; // Fade in
-            }, 700);
-        }, 2000);
+        let isDeleting = false;
+        let currentWord = "";
+        let charIndex = 0;
+
+        function type() {
+            const fullWord = words[index];
+            if (isDeleting) {
+                // Remove characters
+                currentWord = fullWord.substring(0, charIndex--);
+                textElement.textContent = currentWord;
+                if (charIndex < 0) {
+                    isDeleting = false;
+                    index = (index + 1) % words.length;
+                    setTimeout(type, 500); // Pause before typing next word
+                    return;
+                }
+            } else {
+                // Add characters
+                currentWord = fullWord.substring(0, charIndex++);
+                textElement.textContent = currentWord;
+                if (charIndex > fullWord.length) {
+                    isDeleting = true;
+                    setTimeout(type, 1500); // Pause before deleting
+                    return;
+                }
+            }
+            // Adjust speed based on action
+            const typingSpeed = isDeleting ? 50 : 100;
+            setTimeout(type, typingSpeed);
+        }
+
+        // Start the typing effect
+        type();
     </script>
     
 </body>
